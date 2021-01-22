@@ -121,24 +121,24 @@ winScreen
 ## Task
 Task definition in order of priority
 
-Setup git & GitHub
-Create and connect files: main.js, player.js, obstacle.js
-BuildDom in main.js
-Create 4 screens in main.js
-Create screenTransitions in main.js
-Create Game class
-Create loop in game.js
-Create Player class
-Create Roman class
-Create Potion class
-Draw Romans in game.js
-Move Romans in game.js
-Draw Potions in game.js
-Move Potions in game.js
-Move player in game.js
-Check Collisions in game.js
-Check game result in game.js
-Add audios, img and fonts
+- Setup git & GitHub
+- Create and connect files: main.js, player.js, obstacle.js
+- BuildDom in main.js
+- Create 4 screens in main.js
+- Create screenTransitions in main.js
+- Create Game class
+- Create loop in game.js
+- Create Player class
+- Create Roman class
+- Create Potion class
+- Draw Romans in game.js
+- Move Romans in game.js
+- Draw Potions in game.js
+- Move Potions in game.js
+- Move player in game.js
+- Check Collisions in game.js
+- Check game result in game.js
+- Add audios, img and fonts
 
 
 ## Links
