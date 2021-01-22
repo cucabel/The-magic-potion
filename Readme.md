@@ -122,7 +122,7 @@ winScreen
 Task definition in order of priority
 
 Setup git & GitHub
-Create and connect files: main.js, player.js, obstacle.js,
+Create and connect files: main.js, player.js, obstacle.js
 BuildDom in main.js
 Create 4 screens in main.js
 Create screenTransitions in main.js
