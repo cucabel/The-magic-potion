@@ -12,7 +12,7 @@ class Player {
     this.x = this.canvas.width / 2;
     this.y = this.canvas.height - this.size;
     this.direction = 0;
-    this.speed = 5;
+    this.speed = 3;
   }
 
   setDirection(direction) {
@@ -22,7 +22,7 @@ class Player {
   }
 
   handleScreenCollision() {
-    this.x += this.direction * this.speed;
+    this.x = this.x + this.direction * this.speed;
     const screenRight = this.canvas.weight;
     const screenLeft = 0;
 
@@ -65,7 +65,6 @@ class Player {
 
     const itemLeft = item.x;
     const itemRight = item.x + item.size;
-    const itemTop = item.y;
     const itemBottom = item.y + item.size;
 
     // Check if the item sides intersect with any of the player's sides

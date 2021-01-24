@@ -1,4 +1,4 @@
-"use strict";
+/*"use strict";
 
 class Item {
     constructor(canvas, x, speed) {
@@ -27,4 +27,5 @@ class Item {
         //return this.x + this.size / 2 > 0;
         return this.y < this.canvas.height;
     }
-}
+
+}*/

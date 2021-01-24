@@ -4,7 +4,8 @@ class Game {
     constructor() {
       this.canvas = null;
       this.ctx = null;
-      this.items = [];
+      this.romans = [];
+      this.potions = [];
       this.player = null;
       this.gameIsOver = false;
       this.gameScreen = null;
@@ -55,11 +56,11 @@ class Game {
   
         // // 1. Create new enemies randomly
         if (Math.random() > 0.99) { // setInterval
-          var romanItem = new Roman(this.canvas, this.canvas.width * Math.random(), 1);
-          this.items.push(romanItem);
+          var roman = new Roman(this.canvas, this.canvas.width * Math.random(), 1);
+          this.romans.push(roman);
         } else if (Math.random() > 0.98) {
-          var potionItem = new Potion(this.canvas, this.canvas.width * Math.random(), 1);
-          this.items.push(potionItem);
+          var potion = new Potion(this.canvas, this.canvas.width * Math.random(), 1);
+          this.potions.push(potion);
         }
   
         // // 2. Check if player had hit any enemy (check all enemies)
@@ -70,12 +71,16 @@ class Game {
   
         // // 4. Move the existing enemies
         // // 5. Check if any enemy is going of the screen
-        console.log(this.items);
-        this.items = this.items.filter(function (item) {
-          item.updatePosition();
-          return item.isInsideScreen();
+        this.romans = this.romans.filter(function (r) {
+          r.updatePosition();
+          return r.isInsideScreen();
         });
   
+        this.potions = this.potions.filter(function (p) {
+          p.updatePosition();
+          return p.isInsideScreen();
+        });
+ 
         // 2. CLEAR THE CANVAS
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   
@@ -84,10 +89,14 @@ class Game {
         this.player.draw();
   
         // // Draw the enemies
-        this.items.forEach(function (item) {
-          item.draw();
+        this.romans.forEach(function (r) {
+          r.draw();
         });
   
+        this.potions.forEach(function (p) {
+          p.draw();
+        });
+        
         // 4. TERMINATE LOOP IF THE GAME IS OVER
         if (!this.gameIsOver) {
           window.requestAnimationFrame(loop);
@@ -107,14 +116,14 @@ class Game {
     }
   
     checkCollisions() {
-      this.items.forEach(function (item) {
+      this.romans.forEach(function (r) {
         // We will implement didCollide() in the next step
-        if (this.player.didCollide(item)) {
-          this.player.setPotion(item);
+        if (this.player.didCollide(r)) {
+          this.player.setPotion(r);
           this.player.setLife();
   
           // Move the enemy off screen to the left
-          item.y = this.canvas.height - item.size;
+          r.y = this.canvas.height + r.size;
   
           if (this.player.lives === 0) {
             this.gameOver();
@@ -123,6 +132,20 @@ class Game {
       }, this);
       // We have to bind `this`
       // as array method callbacks `this` value defaults to undefined.
+      this.potions.forEach(function (p) {
+        // We will implement didCollide() in the next step
+        if (this.player.didCollide(p)) {
+          this.player.setPotion(p);
+          this.player.setLife();
+  
+          // Move the enemy off screen to the left
+          p.y = this.canvas.height + p.size;
+  
+          if (this.player.lives === 0) {
+            this.gameOver();
+          }
+        }
+      }, this);
     }
   
     gameOver() {
