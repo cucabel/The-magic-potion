@@ -4,21 +4,18 @@ class Game {
     constructor() {
       this.canvas = null;
       this.ctx = null;
-      //this.items = [];
       this.romans = [];
       this.potions = [];
       this.player = null;
       this.gameIsOver = false;
       this.gameScreen = null;
+      this.audio = null;
     }
   
     // Create `ctx`, a `player` and start the Canvas loop
     start() {
       this.canvasContainer = document.querySelector(".canvas-container");
       this.canvas = this.gameScreen.querySelector("canvas");
-      //this.audio = this.gameScreen.querySelector("audio source").getAttribute(src);
-      //this.audioSrc = this.gameScreen.querySelector("audio").src; append another src to audio to play at the same time
-      //this.audioSrc = this.gameScreen.querySelector("audio source").src;
       this.ctx = this.canvas.getContext("2d");
   
       // Save reference to the score and live elements
@@ -32,7 +29,7 @@ class Game {
       this.canvas.setAttribute("width", this.containerWidth);
       this.canvas.setAttribute("height", this.containerHeight);
 
-      this.player = new Player(this.canvas, 2);
+      this.player = new Player(this.canvas, 1);
   
       // Add event listener for moving the player
       function handleKeyDown(event) {
@@ -62,15 +59,11 @@ class Game {
   
         // // 1. Create new enemies randomly
         if (Math.random() > 0.99) { // setInterval
-          let roman = new Roman(this.canvas, this.canvas.width * Math.random(), 1);
-          console.log(roman);
+          var roman = new Roman(this.canvas, this.canvas.width * Math.random(), 1);
           this.romans.push(roman);
-          console.log(this.romans);
-          //this.items.push(roman);
         } else if (Math.random() > 0.98) {
-          let potion = new Potion(this.canvas, this.canvas.width * Math.random(), 1);
+          var potion = new Potion(this.canvas, this.canvas.width * Math.random(), 1);
           this.potions.push(potion);
-          //this.items.push(potion);
         }
   
         // // 2. Check if player had hit any enemy (check all enemies)
@@ -81,22 +74,13 @@ class Game {
   
         // // 4. Move the existing enemies
         // // 5. Check if any enemy is going of the screen
-        /*this.romans = this.romans.map(r => r.updatePosition()).filter(r => r.isInsideScreen());*/
-
-        //this.romans = this.romans.filter(function (r) {
-          /*this.items = this.items.filter(function (i) {
-            i.updatePosition();
-          return i.isInsideScreen();
-        });*/
-
         this.romans = this.romans.filter(function (r) {
-            r.updatePosition();
+          r.updatePosition();
           return r.isInsideScreen();
         });
-        
-        //this.potions = this.potions.filter(function (p) {
+  
         this.potions = this.potions.filter(function (p) {
-            p.updatePosition();
+          p.updatePosition();
           return p.isInsideScreen();
         });
  
@@ -109,14 +93,8 @@ class Game {
         this.player.draw();
   
         // // Draw the enemies
-        /*this.items.forEach(function (i) {
-          i.draw();
-        });*/
-
-        /*console.log(this.romans);*/
         this.romans.forEach(function (r) {
           r.draw();
-          console.log(r);
         });
   
         this.potions.forEach(function (p) {
@@ -142,27 +120,11 @@ class Game {
     }
   
     checkCollisions() {
-      /*this.items.forEach(function (i) {
-        // We will implement didCollide() in the next step
-        if (this.player.didCollide(i)) {
-          let audioSrc = this.player.setPotion(i);
-          let itemSound = new Audio(audioSrc);
-          itemSound.play();
-          this.player.setLife();
-  
-          // Move the enemy off screen to the left
-          i.y = this.canvas.height + i.size;
-  
-          if (this.player.lives === 0) {
-            this.gameOver();
-          }
-        }
-      }, this);*/
-
       this.romans.forEach(function (r) {
         // We will implement didCollide() in the next step
         if (this.player.didCollide(r)) {
-          this.player.setPotion(r);
+          this.audio = new Audio(this.player.setPotion(r)); //only sounds one
+          this.audio.play();
           this.player.setLife();
   
           // Move the enemy off screen to the left
@@ -178,7 +140,8 @@ class Game {
       this.potions.forEach(function (p) {
         // We will implement didCollide() in the next step
         if (this.player.didCollide(p)) {
-          this.player.setPotion(p);
+          this.audio = new Audio(this.player.setPotion(p)); //only sounds one
+          this.audio.play();          
           this.player.setLife();
   
           // Move the enemy off screen to the left
@@ -197,7 +160,7 @@ class Game {
   
       // Call the `endGame` function from `main` to remove the Game screen
       // and show the Game Over Screen
-      endGame(this.player.score);
+      endGame(this.score);
     }
   
     updateGameStats() {
