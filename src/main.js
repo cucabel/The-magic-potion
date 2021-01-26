@@ -18,7 +18,9 @@ function createSplashScreen() {
       <source src="../sound/splashScreen.mp3" type="audio/mp3">
     </audio>
     <h1>The magic potion</h1>
-    <button>Start</button>
+    <p>You will get superhuman strength when you get 100 points, to do so, try to collect as many potions as possible, and avoid the romans,
+    while moving to the rigth and the left with the arrow keys.</p>
+    <button id="button">Start</button>
   </main>
       `);
 
@@ -80,7 +82,27 @@ function createGameOverScreen(score) {
     <div class="game-over-div">
       <h1>Game over</h1>
       <p>Your score: <span> ${score} </span></p>
-      <button>Restart</button>
+      <button id="button">Start</button>
+    <div>
+  </main>
+  `);
+
+  const button = gameOverScreen.querySelector("button");
+  button.addEventListener("click", startGame);
+
+  document.body.appendChild(gameOverScreen);
+}
+
+function createSuccessScreen(score) {
+  gameOverScreen = buildDom(`
+  <main class="final-screen-container">
+    <audio autoplay>
+      <source src="../sound/win.wav" type="audio/mp3">
+    </audio>
+    <div class="final-screen-div">
+      <h2>You got superhuman strength</h2>
+      <p>Your score: <span> ${score} </span></p>
+      <button id="button">Start</button>
     <div>
   </main>
   `);
@@ -115,6 +137,11 @@ function startGame() {
 function endGame(score) {
   removeGameScreen();
   createGameOverScreen(score);
+}
+
+function success(score) {
+  removeGameScreen();
+  createSuccessScreen(score);
 }
 
 // Runs the function `createSplashScreen` once all resources are loaded

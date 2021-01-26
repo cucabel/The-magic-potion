@@ -25,7 +25,7 @@ class Player {
 
   handleScreenCollision() {
     this.x = this.x + this.direction * this.speed;
-    const screenRight = this.canvas.weight;
+    const screenRight = this.canvas.width;
     const screenLeft = 0;
 
     const playerRight = this.x + this.width;

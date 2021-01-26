@@ -39,7 +39,7 @@ html {
   .splash-screen-container { /*do a div inside the contaainer -> the container of one color, and the div with the background*/
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
     height: 100%;
     background: url(../img/The-magic-potion.jpg);
@@ -47,7 +47,7 @@ html {
     background-position: center;
   }
 
-  .game-over-container {
+  .final-screen-container {
     background: #111;
     display: flex;
     flex-direction: column;
@@ -55,7 +55,7 @@ html {
     height: 100%;
   }
 
-  .game-over-div {
+  .final-screen-div {
     height: 50%;
     width: 50%;
     margin: auto;
@@ -74,10 +74,53 @@ html {
     text-transform: uppercase;
     text-shadow: #FFD700 5px -5px 9px;
   }
+
+  h2 {
+    margin: 0 auto;
+    color: white;
+    font-size: 2em;
+    line-height: 1.5em;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: #FFA500 5px -5px 9px;
+  }
+
+  p {
+    width: 750px;
+    font-size: 1.5em;
+    line-height: 1.3em;
+    text-align: center;
+    color: white;
+    text-shadow: #FFA500 5px -5px 9px;
+  }
+
+  #button {
+    padding: 90px 20px 30px 20px;
+    font-size: 1.4em;
+    font-family: Comic Sans MS;
+    color: white;
+    background: url("../img/potion.png");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    border:none;
+  }
+
+  #button:hover {
+    transform: scale(1.1);
+  }
+
+  #button:focus {
+    outline: 0;
+  }
+
   /*------ Isabel ------*/
 
   .container {
     margin: 0 20px;
+    background: url("../img/The-magic-potion.jpg");
+    background-size: cover;
+    background-position: center;
   }
   
   @media (min-width: 768px) {

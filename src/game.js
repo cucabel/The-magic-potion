@@ -103,7 +103,7 @@ class Game {
         });
         
         // 4. TERMINATE LOOP IF THE GAME IS OVER
-        if (!this.gameIsOver) {
+        if (!this.gameIsOver && !this.gameIsWon) {
           window.requestAnimationFrame(loop);
         }
   
@@ -131,13 +131,13 @@ class Game {
           // Move the enemy off screen to the left
           r.y = this.canvas.height + r.size;
   
-          if (this.player.lives === 0) {
+          if (this.player.lives < 0) {
             this.gameOver();
           }
 
-          if (this.player.score === 1000) {
-            this.passed();
-          }
+          /*if (this.player.score === 50) {
+            this.wonGame();
+          }*/
         }
       }, this);
       // We have to bind `this`
@@ -152,8 +152,12 @@ class Game {
           // Move the enemy off screen to the left
           p.y = this.canvas.height + p.size;
   
-          if (this.player.lives === 0) {
+          /*if (this.player.lives < 0) {
             this.gameOver();
+          }*/
+
+          if (this.player.score === 20) {
+            this.wonGame()
           }
         }
       }, this);
@@ -166,6 +170,11 @@ class Game {
       // Call the `endGame` function from `main` to remove the Game screen
       // and show the Game Over Screen
       endGame(this.score);
+    }
+
+    wonGame() {
+      this.gameIsWon = true;
+      success(this.score);
     }
   
     updateGameStats() {
