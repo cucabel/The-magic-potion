@@ -18,7 +18,7 @@ html {
   
   body {
     color: #111;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Comic Sans MS, Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 147%;
   }
@@ -34,7 +34,38 @@ html {
     height: 100vh;
     overflow: hidden;
   }
-  
+
+  /*------ Isabel ------*/
+  .splash-screen-container { /*do a div inside the contaainer -> the container of one color, and the div with the background*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    background: url(../img/The-magic-potion.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .game-over-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    background: url(../img/The-magic-potion.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  h1 {
+    color: white;
+    font-size: 5em;
+    text-transform: uppercase;
+    text-shadow: #FFD700 5px -5px 9px;
+  }
+  /*------ Isabel ------*/
+
   .container {
     margin: 0 20px;
   }

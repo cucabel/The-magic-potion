@@ -4,15 +4,15 @@ class Player {
   constructor(canvas, lives) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
-
     this.lives = lives;
     this.potion = 0;
     this.score = 0;
-    this.size = 40;
+    this.height = 100;
+    this.width = 50;
     this.x = this.canvas.width / 2;
-    this.y = this.canvas.height - this.size;
+    this.y = this.canvas.height - this.height;
     this.direction = 0;
-    this.speed = 3;
+    this.speed = 1.5;
   }
 
   setDirection(direction) {
@@ -26,7 +26,7 @@ class Player {
     const screenRight = this.canvas.weight;
     const screenLeft = 0;
 
-    const playerRight = this.x + this.size;
+    const playerRight = this.x + this.width;
     const playerLeft = this.x;
 
     if (playerRight > screenRight) this.direction = -1;
@@ -34,47 +34,62 @@ class Player {
   }
 
   setPotion(item) {
-    if (item instanceof Potion)
+    let audioSrc = null;
+    if (item instanceof Potion) {
+      //audioSrc = '../sound/potion.wav';
       this.potion += 10;
       this.score += 10;
-    if (item instanceof Roman)
+    }
+    if (item instanceof Roman) {
+      //audioSrc = '../sound/potion.wav';
       this.potion -= 10;
+    }
+    return audioSrc;
   }
 
   setLife() {
-    if (this.potion >= 100) {
+    if (this.potion > 100) {
       this.lives += 1;
       this.potion = 0;
     } else if (this.potion < 0) {
       this.lives -= 1;
-      this.potion = 0;
+      this.potion = 100;
     }
   }
 
   draw() {
-    this.ctx.fillStyle = "#FF1493";
+    const asterixImg = new Image();
+    asterixImg.src = '../img/asterix.png';
+
+    this.ctx.drawImage(asterixImg, this.x, this.y, this.width, this.height);
+
+    /*this.ctx.fillStyle = "#FF1493";
     // fillRect(x, y, width, height)
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+    this.ctx.fillRect(this.x, this.y, this.size, this.size);*/
   }
 
   didCollide(item) {
     const playerLeft = this.x;
-    const playerRight = this.x + this.size;
+    const playerRight = this.x + this.width;
     const playerTop = this.y;
-    const playerBottom = this.y + this.size;
+    const playerBottom = this.y + this.height;
 
     const itemLeft = item.x;
-    const itemRight = item.x + item.size;
-    const itemBottom = item.y + item.size;
+    const itemRight = item.x + item.width;
+    const itemBottom = item.y + item.height;
+    const itemTop = item.y;
 
     // Check if the item sides intersect with any of the player's sides
     const crossLeft = itemLeft <= playerRight && itemLeft >= playerLeft;
 
     const crossRight = itemRight >= playerLeft && itemRight <= playerRight;
 
-    const crossBottom = itemBottom >= playerTop && itemBottom <= playerBottom;
+    const crossTop = itemBottom >= playerTop && itemBottom <= playerBottom;
 
-    if (crossLeft || crossRight || crossBottom) {
+    const crossBottom = itemTop <= playerBottom && itemTop >= playerTop;
+
+    if ((crossLeft || crossRight) && (crossTop || crossBottom)) {
+    //if ((crossLeft || crossRight) && crossTop) {
       return true;
     } else {
       return false;

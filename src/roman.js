@@ -1,20 +1,23 @@
 "use strict";
 
-class Roman {
+class Roman /*extends Item*/ {
+    /*constructor(canvas, x, speed, ctx, height, width, y) {
+    super(canvas, x, speed, ctx, height, width, y);
+    super(canvas, x, speed);*/
     constructor(canvas, x, speed) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
-        this.size = 20;
-        this.x = x; 
+        this.height = 50;
+        this.width = 25;
+        this.x = x;  
         this.y = 0 - this.size;
         this.speed = speed;
+        this.romanImg = new Image();
+        this.romanImg.src = '../img/roman.png';
     }
 
     draw() {
-        this.ctx.fillStyle = "#111";
-
-        // fillRect(x, y, width, height)
-        this.ctx.fillRect(this.x, this.y, this.size, this.size);
+        this.ctx.drawImage(this.romanImg, this.x, this.y, this.width, this.height);
     }
 
     updatePosition() {

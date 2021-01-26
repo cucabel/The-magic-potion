@@ -13,7 +13,10 @@ function buildDom(htmlString) {
 
 function createSplashScreen() {
   splashScreen = buildDom(`
-      <main>
+      <main class="splash-screen-container">
+        <audio autoplay>
+          <source src="../sound/splashScreen.mp3" type="audio/mp3">
+        </audio>
         <h1>The magic potion</h1>
         <button>Start</button>
       </main>
@@ -21,7 +24,10 @@ function createSplashScreen() {
 
   document.body.appendChild(splashScreen);
 
+  const audio = splashScreen.querySelector("audio");
   const startButton = splashScreen.querySelector("button");
+
+  audio.loop = true; //Sets or returns whether the audio/video should start over again when finished
   startButton.addEventListener("click", startGame);
 }
 
@@ -35,6 +41,9 @@ function removeSplashScreen() {
 function createGameScreen() { // here is where the canvas tag is
   gameScreen = buildDom(`
       <main class="game container">
+        <audio autoplay>
+          <source src="../sound/gameScreen.mp3" type="audio/mp3">
+        </audio>
         <header>
           <div class="lives">
             <span class="label">Lives:</span>
@@ -56,6 +65,10 @@ function createGameScreen() { // here is where the canvas tag is
       `);
 
   document.body.appendChild(gameScreen);
+
+  const audio = splashScreen.querySelector("audio");
+  audio.loop = true;
+
   return gameScreen;
 }
 
@@ -67,14 +80,20 @@ function removeGameScreen() {
 
 function createGameOverScreen(score) {
   gameOverScreen = buildDom(`
-    <main>
+    <main class="game-over-container">
+      <audio autoplay>
+        <source src="../sound/gameOver.wav" type="audio/mp3">
+      </audio>
       <h1>Game over</h1>
       <p>Your score: <span> ${score} </span></p>
       <button>Restart</button>
     </main>
   `);
 
+  const audio = splashScreen.querySelector("audio");
   const button = gameOverScreen.querySelector("button");
+  
+  audio.loop = true; 
   button.addEventListener("click", startGame);
 
   document.body.appendChild(gameOverScreen);

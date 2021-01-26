@@ -4,7 +4,8 @@ class Item {
     constructor(canvas, x, speed) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
-        this.size = 20;
+        this.height = 50;
+        this.width = 25;        
         this.x = x; 
         this.y = 0 - this.size;
         this.speed = speed;
@@ -14,7 +15,7 @@ class Item {
         this.ctx.fillStyle = "#FF6F27";
 
         // fillRect(x, y, width, height)
-        this.ctx.fillRect(this.x, this.y, this.size, this.size);
+        this.ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 
     updatePosition() {

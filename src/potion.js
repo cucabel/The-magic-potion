@@ -1,20 +1,23 @@
 "use strict";
 
-class Potion {
+class Potion /*extends Item*/ {
+    /*constructor(canvas, x, speed, ctx, height, width, y) {
+    super(canvas, x, speed, ctx, height, width, y);
+    super(canvas, x, speed);*/
     constructor(canvas, x, speed) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
-        this.size = 20;
-        this.x = x; 
+        this.height = 50;
+        this.width = 25;
+        this.x = x;  
         this.y = 0 - this.size;
         this.speed = speed;
+        this.potionImg = new Image();
+        this.potionImg.src = '../img/potion.png';
     }
 
     draw() {
-        this.ctx.fillStyle = "#FF6F27";
-
-        // fillRect(x, y, width, height)
-        this.ctx.fillRect(this.x, this.y, this.size, this.size);
+        this.ctx.drawImage(this.potionImg, this.x, this.y, this.width, this.height);
     }
 
     updatePosition() {
