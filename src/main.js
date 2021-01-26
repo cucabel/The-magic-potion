@@ -77,9 +77,11 @@ function createGameOverScreen(score) {
     <audio autoplay>
       <source src="../sound/gameOver.wav" type="audio/mp3">
     </audio>
-    <h1>Game over</h1>
-    <p>Your score: <span> ${score} </span></p>
-    <button>Restart</button>
+    <div class="game-over-div">
+      <h1>Game over</h1>
+      <p>Your score: <span> ${score} </span></p>
+      <button>Restart</button>
+    <div>
   </main>
   `);
 

@@ -8,6 +8,7 @@ class Game {
       this.potions = [];
       this.player = null;
       this.gameIsOver = false;
+      this.gameIsWon = false;
       this.gameScreen = null;
       this.audio = null;
     }
@@ -132,6 +133,10 @@ class Game {
   
           if (this.player.lives === 0) {
             this.gameOver();
+          }
+
+          if (this.player.score === 1000) {
+            this.passed();
           }
         }
       }, this);
