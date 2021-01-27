@@ -17,10 +17,10 @@ function createSplashScreen() {
     <audio autoplay>
       <source src="sound/splashScreen.mp3" type="audio/mp3">
     </audio>
-    <h1>The magic potion</h1>
-    <p>You will get superhuman strength when you get 100 points, to do so, try to collect as many potions as possible, and avoid the romans,
-    while moving to the rigth and the left with the arrow keys.</p>
-    <button id="button">Start</button>
+      <h1>The magic potion</h1>
+      <p>You will get superhuman strength when you get 100 points, to do so, try to collect as many potions as possible, and avoid the romans,
+      while moving to the rigth and the left with the arrow keys.</p>
+      <button id="button">Start</button>
   </main>
       `);
 
@@ -39,28 +39,30 @@ function removeSplashScreen() {
 
 function createGameScreen() { // here is where the canvas tag is
   gameScreen = buildDom(`
-  <main class="game container">
-    <audio autoplay>
-      <source src="sound/gameScreen.mp3" type="audio/mp3">
-    </audio>
-    <header>
-      <div class="lives">
-        <span class="label">Lives:</span>
-        <span class="value"></span>
+  <div class="parent-container">
+    <main class="game container">
+      <audio autoplay>
+        <source src="sound/gameScreen.mp3" type="audio/mp3">
+      </audio>
+      <header>
+        <div class="lives">
+          <span class="label">Lives:</span>
+          <span class="value"></span>
+        </div>
+        <div class="potion">
+          <span class="label">Potion:</span>
+          <span class="value"></span>
+        </div>
+        <div class="score">
+          <span class="label">Score:</span>
+          <span class="value"></span>
+        </div>
+      </header>
+      <div class="canvas-container">
+        <canvas></canvas> 
       </div>
-      <div class="potion">
-        <span class="label">Potion:</span>
-        <span class="value"></span>
-      </div>
-      <div class="score">
-        <span class="label">Score:</span>
-        <span class="value"></span>
-      </div>
-    </header>
-    <div class="canvas-container">
-      <canvas></canvas> 
-    </div>
-  </main>
+    </main>
+  </div>
       `);
 
   document.body.appendChild(gameScreen);
@@ -75,13 +77,13 @@ function removeGameScreen() {
 
 function createGameOverScreen(score) {
   gameOverScreen = buildDom(`
-  <main class="game-over-container">
+  <main class="final-screen-container">
     <audio autoplay>
       <source src="sound/gameOver.wav" type="audio/mp3">
     </audio>
-    <div class="game-over-div">
+    <div class="div">
       <h1>Game over</h1>
-      <p>Your score: <span> ${score} </span></p>
+      <p>Total score: <span> ${score} </span></p>
       <button id="button">Start</button>
     <div>
   </main>
@@ -99,9 +101,9 @@ function createSuccessScreen(score) {
     <audio autoplay>
       <source src="sound/win.wav" type="audio/mp3">
     </audio>
-    <div class="final-screen-div">
+    <div class="div">
       <h2>You got superhuman strength</h2>
-      <p>Your score: <span> ${score} </span></p>
+      <p>Total score: <span> ${score} </span></p>
       <button id="button">Start</button>
     <div>
   </main>

@@ -17,7 +17,7 @@ html {
   /* ---- typography ---- */
   
   body {
-    color: #111;
+    color: white;
     font-family: Comic Sans MS, Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 147%;
@@ -36,6 +36,12 @@ html {
   }
 
   /*------ Isabel ------*/
+
+  .parent-container {
+    background-color: #111;
+    height: 100%;
+  }
+
   .splash-screen-container { /*do a div inside the container -> the container of one color, and the div with the background*/
     display: flex;
     flex-direction: column;
@@ -55,7 +61,7 @@ html {
     height: 100%;
   }
 
-  .final-screen-div {
+  .div {
     height: 50%;
     width: 50%;
     margin: auto;
@@ -118,9 +124,6 @@ html {
 
   .container {
     margin: 0 20px;
-    background: url("../img/forest.jpg");
-    background-size: cover;
-    background-position: center;
   }
   
   @media (min-width: 768px) {
