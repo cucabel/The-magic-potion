@@ -30,7 +30,7 @@ class Game {
       this.canvas.setAttribute("width", this.containerWidth);
       this.canvas.setAttribute("height", this.containerHeight);
 
-      this.player = new Player(this.canvas, 1);
+      this.player = new Player(this.canvas, 3);
   
       // Add event listener for moving the player
       function handleKeyDown(event) {
@@ -38,7 +38,7 @@ class Game {
           this.player.setDirection("right");
         } else if (event.key === "ArrowLeft") {
           this.player.setDirection("left");
-        }
+        } 
       }
   
       // Any function provided to eventListener is always invoked by the `window` global object
@@ -59,11 +59,11 @@ class Game {
         // // 0. Our player was already created - via `game.start()`
   
         // // 1. Create new enemies randomly
-        if (Math.random() > 0.99) { // setInterval
-          var roman = new Roman(this.canvas, this.canvas.width * Math.random(), 1);
+        if (Math.random() > 0.98) { // setInterval
+          var roman = new Roman(this.canvas, this.canvas.width * Math.random(), 2);
           this.romans.push(roman);
-        } else if (Math.random() > 0.98) {
-          var potion = new Potion(this.canvas, this.canvas.width * Math.random(), 1);
+        } else if (Math.random() > 0.99) {
+          var potion = new Potion(this.canvas, this.canvas.width * Math.random(), 2);
           this.potions.push(potion);
         }
   
@@ -156,7 +156,7 @@ class Game {
             this.gameOver();
           }*/
 
-          if (this.player.score === 20) {
+          if (this.player.score === 1000) {
             this.wonGame()
           }
         }

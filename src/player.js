@@ -13,6 +13,8 @@ class Player {
     this.y = this.canvas.height - this.height;
     this.direction = 0;
     this.speed = 3;
+    this.asterixImg = new Image();
+    this.asterixImg.src = 'img/asterix.png';
   }
 
   setDirection(direction) {
@@ -42,7 +44,8 @@ class Player {
     } 
     if (item instanceof Roman) {
       audioSrc = 'sound/roman.wav';
-      this.potion -= 10;
+      this.lives -=1
+      this.potion = 0;
     }
     return audioSrc;
   }
@@ -58,9 +61,7 @@ class Player {
   }
 
   draw() {
-    const asterixImg = new Image();
-    asterixImg.src = 'img/asterix.png';
-    this.ctx.drawImage(asterixImg, this.x, this.y, this.width, this.height);
+    this.ctx.drawImage(this.asterixImg, this.x, this.y, this.width, this.height);
   }
 
   didCollide(item) {
