@@ -13,8 +13,6 @@ class Player {
     this.y = this.canvas.height - this.height;
     this.direction = 0;
     this.speed = 3;
-    this.asterixImg = new Image();
-    this.asterixImg.src = 'img/asterix.png';
   }
 
   setDirection(direction) {
@@ -38,12 +36,12 @@ class Player {
   setPotion(item) {
     let audioSrc = null;
     if (item instanceof Potion) {
-      audioSrc = '/sound/potion.wav';
+      audioSrc = 'sound/potion.wav';
       this.potion += 10;
       this.score += 10;
     } 
     if (item instanceof Roman) {
-      audioSrc = '/sound/roman.wav';
+      audioSrc = 'sound/roman.wav';
       this.potion -= 10;
     }
     return audioSrc;
@@ -60,7 +58,9 @@ class Player {
   }
 
   draw() {
-     this.ctx.drawImage(this.asterixImg, this.x, this.y, this.width, this.height);
+    const asterixImg = new Image();
+    asterixImg.src = 'img/asterix.png';
+    this.ctx.drawImage(asterixImg, this.x, this.y, this.width, this.height);
   }
 
   didCollide(item) {
