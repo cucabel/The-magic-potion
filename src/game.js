@@ -53,7 +53,7 @@ class Game {
     startLoop() {
       const loop = function () {
         const background = new Image();
-        background.src = '../img/forest.jpg';
+        background.src = '/img/forest.jpg';
         // 1. UPDATE THE STATE OF PLAYER AND ENEMIES
   
         // // 0. Our player was already created - via `game.start()`

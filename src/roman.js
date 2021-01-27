@@ -10,7 +10,7 @@ class Roman {
         this.y = 0 - this.height;
         this.speed = speed;
         this.romanImg = new Image();
-        this.romanImg.src = '../img/roman.png';
+        this.romanImg.src = '/img/roman.png';
     }
 
     draw() {
