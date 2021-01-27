@@ -23,7 +23,7 @@ class Potion {
     }
 
     isInsideScreen() {
-        return (this.y < this.canvas.height && this.x + this.width/2 < this.canvas.width);
+        return (this.y < this.canvas.height && this.x + this.width < this.canvas.width);
     }
 
 }
