@@ -15,7 +15,7 @@ function createSplashScreen() {
   splashScreen = buildDom(`
   <main class="splash-screen-container">
     <audio autoplay>
-      <source src="sound/splashScreen.mp3" type="audio/mp3">
+      <source src="/sound/splashScreen.mp3" type="audio/mp3">
     </audio>
     <h1>The magic potion</h1>
     <p>You will get superhuman strength when you get 100 points, to do so, try to collect as many potions as possible, and avoid the romans,
@@ -41,7 +41,7 @@ function createGameScreen() { // here is where the canvas tag is
   gameScreen = buildDom(`
   <main class="game container">
     <audio autoplay>
-      <source src="sound/gameScreen.mp3" type="audio/mp3">
+      <source src="/sound/gameScreen.mp3" type="audio/mp3">
     </audio>
     <header>
       <div class="lives">
@@ -77,7 +77,7 @@ function createGameOverScreen(score) {
   gameOverScreen = buildDom(`
   <main class="game-over-container">
     <audio autoplay>
-      <source src="sound/gameOver.wav" type="audio/mp3">
+      <source src="/sound/gameOver.wav" type="audio/mp3">
     </audio>
     <div class="game-over-div">
       <h1>Game over</h1>
@@ -97,7 +97,7 @@ function createSuccessScreen(score) {
   gameOverScreen = buildDom(`
   <main class="final-screen-container">
     <audio autoplay>
-      <source src="sound/win.wav" type="audio/mp3">
+      <source src="/sound/win.wav" type="audio/mp3">
     </audio>
     <div class="final-screen-div">
       <h2>You got superhuman strength</h2>

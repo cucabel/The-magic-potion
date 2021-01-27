@@ -42,7 +42,7 @@ html {
     justify-content: flex-start;
     align-items: center;
     height: 100%;
-    background: url('img/The-magic-potion.jpg');
+    background: url('../img/The-magic-potion.jpg');
     background-size: cover;
     background-position: center;
   }
@@ -63,7 +63,7 @@ html {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background: url('img/The-magic-potion.jpg');
+    background: url('../img/The-magic-potion.jpg');
     background-size: cover;
     background-position: center;
   }
@@ -99,7 +99,7 @@ html {
     font-size: 1.4em;
     font-family: Comic Sans MS;
     color: white;
-    background: url("img/potion.png");
+    background: url("../img/potion.png");
     background-size: auto;
     background-repeat: no-repeat;
     background-position: center;
@@ -118,7 +118,7 @@ html {
 
   .container {
     margin: 0 20px;
-    background: url("img/forest.jpg");
+    background: url("../img/forest.jpg");
     background-size: cover;
     background-position: center;
   }
