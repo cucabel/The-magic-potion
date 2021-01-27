@@ -4,6 +4,7 @@ let game;
 let splashScreen;
 let gameScreen;
 let gameOverScreen;
+let successScreen;
 
 function buildDom(htmlString) {
   const div = document.createElement("div");
@@ -96,7 +97,7 @@ function createGameOverScreen(score) {
 }
 
 function createSuccessScreen(score) {
-  gameOverScreen = buildDom(`
+  successScreen = buildDom(`
   <main class="final-screen-container">
     <audio autoplay>
       <source src="sound/win.wav" type="audio/mp3">
@@ -109,10 +110,10 @@ function createSuccessScreen(score) {
   </main>
   `);
 
-  const button = gameOverScreen.querySelector("button");
+  const button = successScreen.querySelector("button");
   button.addEventListener("click", startGame);
 
-  document.body.appendChild(gameOverScreen);
+  document.body.appendChild(successScreen);
 }
 
 function removeGameOverScreen() {
@@ -121,11 +122,18 @@ function removeGameOverScreen() {
   }
 }
 
+function removeSuccessScreen() {
+  if (successScreen !== undefined) {
+    successScreen.remove();
+  }
+}
+
 // -- Setting the game state - start or game over
 
 function startGame() {
   removeSplashScreen();
   removeGameOverScreen();
+  removeSuccessScreen();
 
   createGameScreen();
 

@@ -8,7 +8,7 @@ class Player {
     this.potion = 0;
     this.score = 0;
     this.height = 100;
-    this.width = 50;
+    this.width = 75;
     this.x = this.canvas.width / 2;
     this.y = this.canvas.height - this.height;
     this.direction = 0;
