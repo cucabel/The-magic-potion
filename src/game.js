@@ -52,8 +52,8 @@ class Game {
   
     startLoop() {
       const loop = function () {
-        const background = new Image();
-        background.src = '/img/forest.jpg';
+        //const background = new Image();
+        //background.src = '/img/forest.jpg';
         // 1. UPDATE THE STATE OF PLAYER AND ENEMIES
   
         // // 0. Our player was already created - via `game.start()`
@@ -89,7 +89,7 @@ class Game {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   
         // 3. UPDATE THE CANVAS
-        this.ctx.drawImage(background, 0, 0, this.canvas.width, this.canvas.height);
+        //this.ctx.drawImage(background, 0, 0, this.canvas.width, this.canvas.height);
         // // Draw the player
         this.player.draw();
   

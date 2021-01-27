@@ -11,7 +11,7 @@ class Potion {
         this.y = 0 - this.height;
         this.speed = speed;
         this.potionImg = new Image();
-        this.potionImg.src = '/img/potion.png';
+        this.potionImg.src = 'img/potion.png';
     }
 
     draw() {
