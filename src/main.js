@@ -19,7 +19,7 @@ function createSplashScreen() {
       <source src="sound/splashScreen.mp3" type="audio/mp3">
     </audio>
       <h1>The magic potion</h1>
-      <p>You will get superhuman strength when you get 100 points, to do so, try to collect as many potions as possible, and avoid the romans,
+      <p>You will get superhuman strength when you get 1000 points, to do so, try to collect as many potions as possible, and avoid the romans,
       while moving to the rigth and the left with the arrow keys.</p>
       <button id="button">Start</button>
   </main>
