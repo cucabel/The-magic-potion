@@ -1,15 +1,17 @@
 # The magic potion
 
 ## Description
-The aim of the game is to get superhuman strength, for that the player should try to get as many as possible potions, while avoiding romans.
+The aim of the game is to get superhuman strength, for that the player should try to get as many potions as possible, while avoiding romans.
 
 
 ## MVP (DOM - CANVAS)
-The player can move to the left and the right, and get the required number of potions to get the superhuman strenght. The game is over when the player runs out of lives due to the collisions with the romans that randomly are falling from above him. The game is won when it has reached the required number of potions, when it gets all of them.
+The player can move to the left and the right, and get the required number of potions to get the superhuman strenght. The game is over when the player runs out of lives due to the collisions with the romans that randomly are falling from above him. The game is won when the player reaches 1000 points, when has collected 100 potions.
 
 
 ## Backlog
-
+Stop the player movement
+Add levels
+Add move items to iterate with
 
 ## Data structure
 Classes and methods definition.
@@ -22,12 +24,13 @@ Properties:
 - splashScreen
 - gameScreen
 - gameOverScreen
+- successScreen
 
 Methods: 
 - buildDom
 - createSplashScreen / removeSplashScreen
 - createGameScreen / removeGameScreen
-- createWinScreen / removeWinScreen
+- createSuccessScreen / removeSuccessScreen
 - createGameOverScreen / removeGameOverScreen
 - startGame / endGame
 
@@ -39,14 +42,16 @@ Properties:
 - potions
 - player
 - gameIsOver
+- gameIsWon
 - gameScreen
-- score
+- audio
 
 Methods:
 - start
 - startLoop
 - checkCollision
 - gameOver
+- wonGame
 - updateGameStats
 
 Player class.
@@ -55,17 +60,21 @@ Properties:
 - ctx
 - lives
 - potion
-- size
+- score
+- height
+- width
 - x
 - y
 - direction
 - speed
+- asterixImg
+- asterixImg.src
 
 Methods:
 - setDirection
 - handleScreenCollision
-- removeLife
-- removePotion
+- setPotion
+- setLife
 - draw
 - didCollide
 
@@ -73,10 +82,13 @@ Roman class.
 Properties:
 - canvas
 - ctx
-- size
+- height
+- width
 - x
 - y
 - speed
+- romanImg
+- romanImg.src
 
 Methods:
 - draw
@@ -87,10 +99,13 @@ Potion class.
 Properties:
 - canvas
 - ctx
-- size
+- height
+- width
 - x
 - y
 - speed
+- potionImg
+- potionImg.src
 
 Methods:
 - draw
@@ -108,13 +123,13 @@ splashScreen
 gameScreen
 - Game running while lives > 0
 - Goes to gameoverScreen if lives < 0
-- Goes to winScreen if Player potion > 100
+- Goes to winScreen if Player score > 1000
 
 gameoverScreen
 - Shows Game Over message and Restart button
 - Goes back to Game Screen when Restart button is clicked
 
-winScreen
+successScreen
 - Shows Win message, random quote, and Restart button
 - Goes back to Game Screen when Restart button is clicked
 
@@ -131,11 +146,12 @@ Task definition in order of priority
 - Create Player class
 - Create Roman class
 - Create Potion class
+- Draw player in game.js
+- Move player in game.js
 - Draw Romans in game.js
 - Move Romans in game.js
 - Draw Potions in game.js
 - Move Potions in game.js
-- Move player in game.js
 - Check Collisions in game.js
 - Check game result in game.js
 - Add audios, img and fonts
@@ -151,9 +167,9 @@ Task definition in order of priority
 ### Git
 URls for the project repo and deploy
 [Link Repo](https://github.com/cucabel/The-magic-potion)
-[Link Deploy](https://github.com/cucabel/The-magic-potion)
+[Link Deploy](https://cucabel.github.io/The-magic-potion/)
 
 
 ### Slides
 URls for the project presentation (slides)
-[Link Slides.com](http://slides.com)
+[Link Slides.com](https://docs.google.com/presentation/d/1jO7IY5U1ve2GpcmYmiNnJMGrfWd_GqJzvjnkz__DDZ4/edit?usp=sharing)
