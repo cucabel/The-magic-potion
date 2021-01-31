@@ -91,3 +91,15 @@ class Player {
     }
   }
 }
+
+/*let movementPlayer = false;
+“keyUp” {
+  if(movementPlayer){
+    movementPlayer = false;
+  }
+}
+“keyDown” {
+  if(movementPlayer){
+  this.player.x += 20;
+  }
+  movementPlayer = true;*/
