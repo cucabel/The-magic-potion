@@ -1,5 +1,7 @@
 "use strict";
 
+/* I want to see the changes*/
+
 class Player {
   constructor(canvas, lives) {
     this.canvas = canvas;
