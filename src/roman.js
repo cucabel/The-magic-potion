@@ -11,5 +11,3 @@ class Roman extends Item {
     }
 
 }
-
-// I guess, using super with the variable, I would be modifiying the parent variable

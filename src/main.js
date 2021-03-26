@@ -32,8 +32,7 @@ function createSplashScreen() {
 }
 
 function removeSplashScreen() {
-  // remove() is the DOM method that removes the Node from the page
-  splashScreen.remove();
+  splashScreen.remove(); // DOM method that removes the Node from the page
 }
 
 // -- game screen
@@ -140,7 +139,6 @@ function startGame() {
   game = new Game();
   game.gameScreen = gameScreen;
 
-  // Start game
   game.start();
 }
 
@@ -154,5 +152,4 @@ function success(score) {
   createSuccessScreen(score);
 }
 
-// Runs the function `createSplashScreen` once all resources are loaded
 window.addEventListener("load", createSplashScreen);

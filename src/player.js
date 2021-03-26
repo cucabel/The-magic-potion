@@ -18,7 +18,6 @@ class Player {
   }
 
   setDirection(direction) {
-    // +1 down  -1 up
     if (direction === "right") this.direction = 1;
     else if (direction === "left") this.direction = -1;
   }
@@ -91,15 +90,3 @@ class Player {
     }
   }
 }
-
-/*let movementPlayer = false;
-“keyUp” {
-  if(movementPlayer){
-    movementPlayer = false;
-  }
-}
-“keyDown” {
-  if(movementPlayer){
-  this.player.x += 20;
-  }
-  movementPlayer = true;*/
